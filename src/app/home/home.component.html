@@ -1,39 +1,26 @@
 <app-header></app-header>
 <main class="container">
   <h1 class="text-center py-4 fs-3">Lista de Contatos</h1>
-  <form class="d-flex w-50 mb-4" role="search">
-    <input class="form-control me-2" type="search" placeholder="Pesquisar contatos" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+  <form [formGroup]="formPesquisa" class="d-flex w-50 mb-4" role="search">
+    <input class="form-control me-2" type="search" placeholder="Pesquisar contatos" aria-label="Search" formControlName="termo">
+    <button class="btn btn-outline-success" type="button" (click)="pesquisarContatos()">Pesquisar</button>
   </form>
   <div class="grid">
     <table class="table table-responsive table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefone</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+        <tr *ngFor="let item of listaContatos">
+          <td>{{item.pessoa.nome}}</td>
+          <td>{{item?.email}}</td>
+          <td>{{item?.telefone}}</td>
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+       </tbody>
     </table>
   </div>
 </main>

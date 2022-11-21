@@ -20,8 +20,8 @@ constructor(
   private router: Router
 ) { }
 
-getToken() {
-  return window.localStorage.getItem(this.KEYTOKEN);
+getToken(): string{
+  return String(window.localStorage.getItem(this.KEYTOKEN));
 }
 
 setToken(token:string) {
@@ -35,8 +35,14 @@ login(body:BodyType){
   });
 }
 
-getListaContatos() {
-  // /api/contato/pesquisar
+getListaContatos(termo="") {
+  const body={termo};
+  debugger
+  return this.httpClient.post(environment.urlLogin+"/api/contato/pesquisar", body,{ headers: {
+    "Authorization": 'Bearer '+ this.getToken(),
+    "Content-Type": "application/json"
+  }});
+
 }
 
 }

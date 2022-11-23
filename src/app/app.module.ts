@@ -11,15 +11,19 @@ import { LoginComponent } from './login/login.component';
 import { AgendaContatosService } from './services/agenda-contatos.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContatoCadastroComponent } from './contato-cadastro/contato-cadastro.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
       HeaderComponent,
       FooterComponent,
       HomeComponent,
       LoginComponent,
-      ContatoCadastroComponent
+      ContatoCadastroComponent,
+      UsuariosComponent,
+      CadastroUsuarioComponent
    ],
   imports: [
     BrowserModule,

@@ -1,49 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { AgendaContatosService } from '../services/agenda-contatos.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-usuarios',
+  templateUrl: './usuarios.component.html',
+  styleUrls: ['./usuarios.component.scss']
 })
-export class HomeComponent implements OnInit {
-  listaContatos:any=[];
-  FormPesquisa!: FormGroup;
-  formPesquisa: any;
+export class UsuariosComponent implements OnInit {
+  listaUsuarios:any=[];
+  formUsuario!: FormGroup;
 
 
   constructor(
     private agendaContatosService: AgendaContatosService,
     private formBuilder: FormBuilder
-
   ) { }
 
   ngOnInit() {
-    this.getListaContatos("");
+    this.getListaUsuarios("");
     this.setFormGroup()
   }
 
   setFormGroup() {
-    this.formPesquisa = this.formBuilder.group({
+    this.formUsuario = this.formBuilder.group({
       termo: [null, Validators.required]
     })
   }
 
 
-  getListaContatos(query:string) {
-    this.agendaContatosService.getListaContatos(query)
+  getListaUsuarios(query:string) {
+    this.agendaContatosService.getListaUsuarios(query)
     .subscribe((result: any) => {
-      this.listaContatos=result;
+      console.log(result)
+      this.listaUsuarios=result;
     })
   }
 
-  pesquisarContatos() {
-    this.getListaContatos(this.formPesquisa.value.termo)
+  pesquisarUsuarios() {
+    this.getListaUsuarios(this.formUsuario.value.termo)
   }
 
-  removeContato(contato:any){
+  removeUsuario(contato:any){
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-outline-danger',
@@ -53,7 +52,7 @@ export class HomeComponent implements OnInit {
     })
    swalWithBootstrapButtons.fire({
       title: 'Tem certeza que deseja excluir?',
-      text: contato.pessoa.nome,
+      text: '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Deletar',
@@ -64,11 +63,11 @@ export class HomeComponent implements OnInit {
         this.agendaContatosService.deletarContato(contato.id)
         .subscribe(() => {
           swalWithBootstrapButtons.fire(
-            'Contato',
+            'Usuario',
             'Deletado com sucesso!',
             'success'
           );
-          this.getListaContatos('');
+          this.getListaUsuarios('');
         }, error => {
           swalWithBootstrapButtons.fire(
             'Erro ao deletar',
@@ -81,3 +80,5 @@ export class HomeComponent implements OnInit {
   }
 
 }
+
+

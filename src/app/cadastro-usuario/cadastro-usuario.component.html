@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container border border-2 container p-5 rounded shadow">
+  <h1 class="fs-2 mb-5">Cadastro de usuário</h1>
+  <form [formGroup]="formCadastroUsuario" class="row g-3" [autocomplete]="false">
+    <div class="col-md-7">
+      <!-- [class.is-invalid]="cadastroContato.get('nome')?.hasError('required')" -->
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome" autocomplete="off">
+      <span class="text-danger textError" *ngIf="formCadastroUsuario.get('nome')?.hasError('required') && (formCadastroUsuario.get('nome')?.dirty || formCadastroUsuario.get('nome')?.touched)" >Campo obrigatório</span>
+    </div>
+    <div class="col-md-5">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <span class="text-danger textError" *ngIf="formCadastroUsuario.get('email')?.hasError('required') && (formCadastroUsuario.get('email')?.dirty || formCadastroUsuario.get('email')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text" class="form-control" id="telefone" formControlName="telefone">
+      <span class="text-danger textError" *ngIf="formCadastroUsuario.get('telefone')?.hasError('required') && (formCadastroUsuario.get('telefone')?.dirty || formCadastroUsuario.get('telefone')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text" class="form-control" id="cpf" formControlName="cpf">
+      <span class="text-danger textError" *ngIf="formCadastroUsuario.get('cpf')?.hasError('required') && (formCadastroUsuario.get('cpf')?.dirty || formCadastroUsuario.get('cpf')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="dataNascimento" class="form-label">Data nascimento</label>
+      <input type="text" class="form-control" id="dataNascimento" formControlName="dataNascimento">
+    </div>
+
+     <div class="col-12 text-end mt-5">
+      <button type="button" class="btn btn-lg btn-primary btn-custom " (click)="cadastrarUsuario()" [ngClass]="{'disabled': !formCadastroUsuario.valid }" >salvar</button>
+    </div>
+    </form>
+</div>

@@ -43,13 +43,17 @@ setHeaderToken() {
   return header;
 }
 
-getListaContatos(termo="") {
+getListaUsuarios(termo="") {
   const body={termo};
-  return this.httpClient.post(environment.urlLogin+"/api/contato/pesquisar", body, this.setHeaderToken());
+  return this.httpClient.post(environment.urlLogin+"/api/usuario/pesquisar", body, this.setHeaderToken());
 }
 
 deletarContato(idContato:number) {
   return this.httpClient.delete(environment.urlLogin+"/api/contato/remover/"+idContato, this.setHeaderToken())
 }
 
+getListaContatos(termo="") {
+  const body={termo};
+  return this.httpClient.post(environment.urlLogin+"/api/contato/pesquisar", body, this.setHeaderToken());
+}
 }

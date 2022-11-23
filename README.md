@@ -14,4 +14,4 @@ ng serve
 Abrir navegador: http://localhost:4200
 ```
 
-## <p align="center">![Agenda Pessoal](./src/assets/-interface.png)<br>Login</p>
+## <p align="center">![Agenda Pessoal](./src/assets/login-interface.png)<br>Login</p>

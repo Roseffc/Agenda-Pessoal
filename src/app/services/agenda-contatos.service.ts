@@ -35,14 +35,21 @@ login(body:BodyType){
   });
 }
 
-getListaContatos(termo="") {
-  const body={termo};
-  debugger
-  return this.httpClient.post(environment.urlLogin+"/api/contato/pesquisar", body,{ headers: {
+setHeaderToken() {
+  const header =  { headers: {
     "Authorization": 'Bearer '+ this.getToken(),
     "Content-Type": "application/json"
-  }});
+  }};
+  return header;
+}
 
+getListaContatos(termo="") {
+  const body={termo};
+  return this.httpClient.post(environment.urlLogin+"/api/contato/pesquisar", body, this.setHeaderToken());
+}
+
+deletarContato(idContato:number) {
+  return this.httpClient.delete(environment.urlLogin+"/api/contato/remover/"+idContato, this.setHeaderToken())
 }
 
 }

@@ -1,4 +1,7 @@
 <div class="login">
+
+  <img class="login-img" src="/assets/imagem/logoMetaway.png" alt="imagem Mataway">
+
   <form [formGroup]="formLogin" class="login-form" autocomplete="off">
     <div class="mb-3">
       <label for="username" class="form-label">Usuário</label>
@@ -13,6 +16,6 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
     </div>
-    <button class="btn btn-primary" type="button" (click)="logar()">Entrar</button>
+    <button class="btn btn-primary w-100" type="button" (click)="logar()">Entrar</button>
   </form>
 </div>

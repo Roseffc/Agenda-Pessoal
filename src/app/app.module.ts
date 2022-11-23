@@ -10,14 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AgendaContatosService } from './services/agenda-contatos.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContatoCadastroComponent } from './contato-cadastro/contato-cadastro.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       HeaderComponent,
       FooterComponent,
       HomeComponent,
-      LoginComponent
+      LoginComponent,
+      ContatoCadastroComponent
    ],
   imports: [
     BrowserModule,

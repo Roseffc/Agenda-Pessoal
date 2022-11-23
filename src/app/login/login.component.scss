@@ -1,9 +1,14 @@
 .login {
-  background-color: #dedede;
+  background-color: #E6E6E6;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  &-img {
+    width: 240px;
+  }
 
   &-form {
     max-width: 300px;

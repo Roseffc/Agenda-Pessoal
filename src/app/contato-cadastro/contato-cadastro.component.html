@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div class="container border border-2 container p-5 rounded shadow">
+  <h1 class="fs-2 mb-5">Cadastro de contato</h1>
+  <form [formGroup]="cadastroContato" class="row g-3" [autocomplete]="false">
+    <div class="col-md-7">
+      <!-- [class.is-invalid]="cadastroContato.get('nome')?.hasError('required')" -->
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome" autocomplete="off">
+      <span class="text-danger textError" *ngIf="cadastroContato.get('nome')?.hasError('required') && (cadastroContato.get('nome')?.dirty || cadastroContato.get('nome')?.touched)" >Campo obrigatório</span>
+    </div>
+    <div class="col-md-5">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <span class="text-danger textError" *ngIf="cadastroContato.get('email')?.hasError('required') && (cadastroContato.get('email')?.dirty || cadastroContato.get('email')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="text" class="form-control" id="telefone" formControlName="telefone">
+      <span class="text-danger textError" *ngIf="cadastroContato.get('telefone')?.hasError('required') && (cadastroContato.get('telefone')?.dirty || cadastroContato.get('telefone')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input type="text" class="form-control" id="cpf" formControlName="cpf">
+      <span class="text-danger textError" *ngIf="cadastroContato.get('cpf')?.hasError('required') && (cadastroContato.get('cpf')?.dirty || cadastroContato.get('cpf')?.touched)" >Campo obrigatório</span>
+
+    </div>
+    <div class="col-md-3">
+      <label for="fotoNome" class="form-label">Foto nome</label>
+      <input type="text" class="form-control" id="fotoNome" formControlName="fotoName">
+    </div>
+    <div class="col-md-3">
+      <label for="fotoUrl" class="form-label">Foto url</label>
+      <input type="text" class="form-control" id="fotoUrl" formControlName="fotoUrl">
+    </div>
+    <div class="col-md-5">
+      <label for="rua" class="form-label">Rua</label>
+      <input type="text" class="form-control" id="rua" formControlName="rua">
+    </div>
+    <div class="col-md-2">
+      <label for="numero" class="form-label">Numero</label>
+      <input type="text" class="form-control" id="numero" formControlName="numero">
+    </div>
+    <div class="col-md-5">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input type="text" class="form-control" id="bairro" formControlName="bairro">
+    </div>
+    <div class="col-md-3">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" class="form-control" id="cidade" formControlName="cidade">
+    </div>
+    <div class="col-md-3">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="estado" formControlName="estado">
+    </div>
+    <div class="col-md-2">
+      <label for="Pais" class="form-label">País</label>
+      <input type="text" class="form-control" id="Pais" formControlName="pais">
+    </div>
+    <div class="col-md-2">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" formControlName="cep">
+    </div>
+     <div class="col-12 text-end mt-5">
+      <button type="button" class="btn btn-lg btn-primary btn-custom " (click)="cadastrarContatos()" [ngClass]="{'disabled': !cadastroContato.valid }" >salvar</button>
+    </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
